@@ -1,5 +1,6 @@
 *.npy
 *pptx
+*.pyc
 rrt/boost_minkowski_sum
 rrt/CS685_McKerley_Project.bib
 rrt/CS685_McKerley_Project.pdf
@@ -17,6 +18,18 @@ rrt/visualize_flag_points.jpg
 rrt/visualize_poses_large.jpg
 rrt/visualize_rrt_traj.jpg
 rrt/visualize_rrt_traj_with_flag_points.jpg
+visual_servoing/__pycache__/
+visual_servoing/archived files/
+visual_servoing/cnngeometric_pytorch-master/
+visual_servoing/sample_image_pairs_test/
+visual_servoing/sample_image_pairs_test_longer_dist/
+visual_servoing/sample_image_pairs_train/
+visual_servoing/target_objects/
+visual_servoing/test_IBVS/
+visual_servoing/test_target_objects/
+visual_servoing/util_visual_servoing.pyc
+visual_servoing/vs_visualization.jpg
+visual_servoing/weakalign-master/
 Arbitrator/
 CVPR_workshop/
 DDPG/
@@ -32,9 +45,7 @@ test_locomotion_network/
 test_locomotion_network_with_goal_recognizor/
 topological_map/
 train_policy/
-utils/
 visual_memory_pytorch/
-visual_servoing/
 visualization/
 vs_controller/
 

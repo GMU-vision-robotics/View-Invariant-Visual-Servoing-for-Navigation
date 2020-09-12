@@ -1,0 +1,50 @@
+count_qualified = 1, traj_idx = 3, subtraj_idx = 0, overlap = 1
+count_qualified = 2, traj_idx = 3, subtraj_idx = 1, overlap = 0
+count_qualified = 3, traj_idx = 3, subtraj_idx = 2, overlap = 1
+count_qualified = 4, traj_idx = 3, subtraj_idx = 3, overlap = 1
+count_qualified = 5, traj_idx = 4, subtraj_idx = 1, overlap = 0
+count_qualified = 6, traj_idx = 4, subtraj_idx = 2, overlap = 0
+count_qualified = 7, traj_idx = 4, subtraj_idx = 4, overlap = 0
+count_qualified = 8, traj_idx = 4, subtraj_idx = 5, overlap = 2
+img_name = Hanson_pose_result_16_overlap_2.jpg
+
+1. Explain the simple_navigation_XXX.py python files
+a. simple_navigation_count_sift_matches.py compute the # of sift matches between current view and the generated view after taking each action. Then make the decision of the next action by looking for the action leading to the most matches.
+b. simple_navigation_original_Jacobian.py computes the velocity using the full jacobian matrix and pick out the velocity for Z and angle velocity around the y-axis.
+c. simple_navigation_myJacobian.py computes the velocity using the jacobian matrix associated with V_z and Omega_y. So it's much simpler than the full jacobian and less computation.
+d. simple_navigation_estimateDepth_test.py computes the velocity using estimated depth of the keypoints.
+
+Explain what other files do.
+a. try_depth_estimation.py does depth estimation for keypoints on sampled image pairs.
+b. try_depth_estimation_sample_depth_image.py sample depth npy file for sampled image pairs.
+
+Explain what compute_essential_matrix_XXX.py files do.
+compute_essential_matrix_cs231a.py compute the essential matrix using 8-point algorithm.
+
+
+2. Generate homography images in scene 'Allensville' and 'Hanson'. Images are saved in 'homography images'
+
+
+3. Generated image pairs to evaluate visual servoing are saved in sample_image_pairs folder. Currently both Training Set and Testing Set is done.
+To generate the image pairs, you firstly run utils/draw_occupancy_map_rrt.py to generate a grid occupancy map. You need to decide the left_x, bottom_y, right_x, top_y though.
+Then run sample_image_pairs_with_common_area.py
+
+4. The evaluation results are saved in test_sample_image_pairs. Here is the hierarchy
+test_sample_image_pairs -> approach -> pair_category -> scene_XXX_point_X
+For example,
+test_sample_image_pairs -> sift_gtDepth ->  rich_visual_cue -> scene_Allensville_point_0
+
+5. To evaluate SIFT-gtDepth-classical_VS approach, run the test_IBVS_SIFT_gtDepth.py file.
+You need to do two things before you run the evaluation code.
+a. Select a scene and a point. Make sure some bad sampled images are removed.
+b. Change category_idx, scene_idx and point_idx in the first few lines of the file.
+To run the code,
+$ python -i my_code/visual_servoing/test_IBVS_SIFT_gtDepth.py --category_idx=0 --scene_idx=1 --point_idx=1
+
+6. I changed the training_set and testing_set. Depth images and pose numpy files are added.
+And code in test_IBVS_SIFT_gtDepth_Vx.py, test_IBVS_SIFT_estimatedDepth_Vx.py, test_IBVS_large_displacement_gtCorrespondence_gtDepth_Vx.py is also changed.
+I also changed the code to remove depth image from the right_img_name list.
+
+7. I changed the code of sample_image_pairs_with_common_area.py. Now only pairs of images with common area are kept. Common area is checked through gt-correspondences.
+$ python sample_image_pairs_with_common_area.py --scene_idx=0
+Then run visualize_sampled_image_pairs.py to visualize the generated images.
