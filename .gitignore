@@ -1,6 +1,4 @@
-*.jpg
 *.npy
-*.png
 *pptx
 rrt/boost_minkowski_sum
 rrt/CS685_McKerley_Project.bib
@@ -10,6 +8,15 @@ rrt/README
 rrt/__pycache__/
 rrt/my_random_navigate.yaml
 rrt/selected_env_num_rrt_nodes.ods
+rrt/Allensville_grid.png
+rrt/cluster_2224_32_arrow_using_L2_distance.jpg
+rrt/cluster_2224_64_arrow_using_L2_distance.jpg
+rrt/obs_Allensville_train/
+rrt/obs_Allensville_train_with_diagnosis/
+rrt/visualize_flag_points.jpg
+rrt/visualize_poses_large.jpg
+rrt/visualize_rrt_traj.jpg
+rrt/visualize_rrt_traj_with_flag_points.jpg
 Arbitrator/
 CVPR_workshop/
 DDPG/
