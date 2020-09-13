@@ -1,3 +1,4 @@
+.gitignore
 *.npy
 *pptx
 *.pyc
@@ -30,6 +31,26 @@ visual_servoing/test_target_objects/
 visual_servoing/util_visual_servoing.pyc
 visual_servoing/vs_visualization.jpg
 visual_servoing/weakalign-master/
+vs_controller/archived files/
+vs_controller/artifical_noise/
+vs_controller/for_video/
+vs_controller/optical_flow/
+vs_controller/overlapping_area/
+vs_controller/successful_runs_eighteenth_try_siamese.txt
+vs_controller/successful_runs_nineteenth_try_corresMapCurrentView_goToPose_metric.txt
+vs_controller/test_LBVS/
+vs_controller/test_goToPose/
+vs_controller/trained_controller/
+vs_controller/trained_controller_vs_SL/
+vs_controller/trained_dqn/
+vs_controller/trained_dqn_short_range/
+vs_controller/trained_vs_representation/
+vs_controller/visualization_trained_rep/
+vs_controller/visualization_trained_rep_per_step/
+vs_controller/visualize_dqn/
+vs_controller/visualize_dqn_objects/
+vs_controller/visualize_heatmap.jpg
+vs_controller/visualize_heatmap2.jpg
 Arbitrator/
 CVPR_workshop/
 DDPG/
@@ -47,5 +68,5 @@ topological_map/
 train_policy/
 visual_memory_pytorch/
 visualization/
-vs_controller/
+
 

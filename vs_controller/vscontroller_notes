@@ -1,0 +1,21 @@
+1. To use test_IBVS_controller_*.py to evaluate a new controller, I have to change a few things.
+approach_folder, approach, model.load_state_dict(), import_controller_python_file, keypoint_detection_method,
+for rnn_models, you may need to initiaize the hidden state before each run.
+
+2. To use collect_replayMemory_supervisedLearning, I have to change a few things.
+scene_name, base_folder, approach_folder, keypoint_detection_approach, velocity_compute_approach
+
+3. To use train_controller_supervisedLearning_fc.py or train_controller_supervisedLearning_rnn.py, I have to change a few things.
+approach, 
+
+4. All the DQN models (perception and action module) are defined in model_vs.py.
+The DQN class is defined in dqn_vs.py.
+train_DQN_vs_overlap.py is the file to train the DQN class.
+evaluate_DQN_vs.py is the test file without generating any visualizations.
+
+5. vs_rep.py implements the inverse and forward dynamics model and DQN using correlation map as perception module. It's not useful anymore as the perception module is changed.
+
+6. 
+temp_genPoses_for_video.py: running DQN and record poses in the trajectory.
+temp_interpolate_poses.py: read the trajectory and does pose interpolation to mimic the continuous actions. Get the observations for all the poses in the interpolated trajectory.
+temp_for_video.py: generate MP4 video given the observations.
