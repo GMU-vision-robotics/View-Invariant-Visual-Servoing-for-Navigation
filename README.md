@@ -4,6 +4,7 @@ code for paper '[Learning View and Target Invariant Visual Servoing for Navigati
 ![Title_image](https://github.com/GMU-vision-robotics/View-Invariant-Visual-Servoing-for-Navigation/blob/master/feature_map.gif)
 
 **Setup GibsonEnv**
+
 Download and install gibson environment from https://github.com/StanfordVL/GibsonEnv.
 
     git checkout d3aa0a1
