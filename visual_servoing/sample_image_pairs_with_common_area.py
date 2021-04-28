@@ -3,17 +3,22 @@ import os, inspect
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(os.path.dirname(currentdir))
 os.sys.path.insert(0,parentdir)
-sys.path.append('/home/reza/Datasets/GibsonEnv/my_code/rrt')
-sys.path.append('/home/reza/Datasets/GibsonEnv/my_code/CVPR_workshop')
-sys.path.append('/home/reza/Datasets/GibsonEnv/my_code/visual_servoing')
-import rrt
+sys.path.append('/home/yimeng/Datasets/GibsonEnv_old_old/my_code/rrt')
+sys.path.append('/home/yimeng/Datasets/GibsonEnv_old/my_code/CVPR_workshop')
+sys.path.append('/home/yimeng/Datasets/GibsonEnv_old/my_code/visual_servoing')
+
+import os
+os.environ['MESA_GL_VERSION_OVERRIDE'] = '3.3'
+os.environ['MESA_GLSL_VERSION_OVERRIDE'] = '330'
+
+import my_code.rrt.rrt as rrt
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import random
 import math
 from math import cos, sin, pi
-from util import func_pose2posAndorn, plus_theta_fn, minus_theta_fn
+from my_code.CVPR_workshop.util import func_pose2posAndorn, plus_theta_fn, minus_theta_fn
 from util_visual_servoing import get_train_test_scenes, get_mapper, create_folder, get_mapper_scene2points, sample_gt_dense_correspondences
 
 #'''
@@ -59,23 +64,23 @@ mapper_theta = {0:-45, 1:-30, 2:-15, 3:0, 4:15, 5:30, 6:45}
 
 def main(scene_idx):
     scene_name = Test_Scenes[scene_idx]
-    scene_file_addr = '/home/reza/Datasets/GibsonEnv/my_code/visual_servoing/sample_image_pairs_test/{}'.format(scene_name)
+    scene_file_addr = '/home/yimeng/Datasets/GibsonEnv_old/my_code/visual_servoing/sample_image_pairs_test/{}'.format(scene_name)
 
     #scene_name = Train_Scenes[scene_idx]
-    #scene_file_addr = '/home/reza/Datasets/GibsonEnv/my_code/visual_servoing/sample_image_pairs_train/{}'.format(scene_name)
+    #scene_file_addr = '/home/yimeng/Datasets/GibsonEnv_old/my_code/visual_servoing/sample_image_pairs_train/{}'.format(scene_name)
     create_folder(scene_file_addr)
 
     ## rrt functions
     ## first figure out how to sample points from rrt graph
-    rrt_directory = '/home/reza/Datasets/GibsonEnv/gibson/assets/dataset/{}_for_rrt'.format(scene_name)
+    rrt_directory = 'gibson/assets/dataset/{}_for_rrt'.format(scene_name)
     path_finder = rrt.PathFinder(rrt_directory)
     path_finder.load()
     num_nodes = len(path_finder.nodes_x)
-    free = cv2.imread('/home/reza/Datasets/GibsonEnv/gibson/assets/dataset/{}_for_rrt/free.png'.format(scene_name), 0)
+    free = cv2.imread('/home/yimeng/Datasets/GibsonEnv_old/gibson/assets/dataset/{}_for_rrt/free.png'.format(scene_name), 0)
 
-    ## GibsonEnv setup
-    config_file = os.path.join('/home/reza/Datasets/GibsonEnv/my_code/CVPR_workshop', 'env_yamls', '{}_navigate.yaml'.format(scene_name))
-    env = HuskyNavigateEnv(config=config_file, gpu_count = 1)
+    ## GibsonEnv_old setup
+    config_file = os.path.join('my_code/CVPR_workshop', 'env_yamls', '{}_navigate.yaml'.format(scene_name))
+    env = HuskyNavigateEnv(config=config_file, gpu_idx=0)
     obs = env.reset() ## this line is important otherwise there will be an error like 'AttributeError: 'HuskyNavigateEnv' object has no attribute 'potential''
 
     def get_obs(current_pose):
@@ -165,7 +170,7 @@ def main(scene_idx):
     img_name = '{}_sampled_poses.jpg'.format(scene_name)
     print('img_name = {}'.format(img_name))
     ## plot the poses
-    free = cv2.imread('/home/reza/Datasets/GibsonEnv/gibson/assets/dataset/{}_for_rrt/free.png'.format(scene_name), 1)
+    free = cv2.imread('/home/yimeng/Datasets/GibsonEnv_old/gibson/assets/dataset/{}_for_rrt/free.png'.format(scene_name), 1)
     rows, cols, _ = free.shape
     plt.imshow(free)
     for m in range(len(left_pose_list)):

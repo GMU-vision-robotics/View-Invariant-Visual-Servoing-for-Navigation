@@ -19,10 +19,15 @@ rrt/visualize_flag_points.jpg
 rrt/visualize_poses_large.jpg
 rrt/visualize_rrt_traj.jpg
 rrt/visualize_rrt_traj_with_flag_points.jpg
+rrt/JK_path_aug/
+rrt/floor_map.png
+rrt/topo_path_obs/
+rrt/traj.png
 visual_servoing/__pycache__/
 visual_servoing/archived files/
 visual_servoing/cnngeometric_pytorch-master/
 visual_servoing/sample_image_pairs_test/
+visual_servoing/sample_image_pairs_test_old/
 visual_servoing/sample_image_pairs_test_longer_dist/
 visual_servoing/sample_image_pairs_train/
 visual_servoing/target_objects/

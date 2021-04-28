@@ -12,11 +12,11 @@ mapper_scene2points = get_mapper_scene2points()
 
 def main(scene_idx=0):
 	#train_scene_idx = 0
-	#scene_name = Test_Scenes[scene_idx]
-	#scene_file_addr = '/home/reza/Datasets/GibsonEnv/my_code/visual_servoing/sample_image_pairs_test/{}'.format(scene_name)
+	scene_name = Test_Scenes[scene_idx]
+	scene_file_addr = '/home/reza/Datasets/GibsonEnv_old/my_code/visual_servoing/sample_image_pairs_test/{}'.format(scene_name)
 	
-	scene_name = Train_Scenes[scene_idx]
-	scene_file_addr = '/home/reza/Datasets/GibsonEnv/my_code/visual_servoing/sample_image_pairs_train/{}'.format(scene_name)
+	#scene_name = Train_Scenes[scene_idx]
+	#scene_file_addr = '/home/reza/Datasets/GibsonEnv/my_code/visual_servoing/sample_image_pairs_train/{}'.format(scene_name)
 	
 	print('scene_name = {}'.format(scene_name))
 	num_points = len(mapper_scene2points[scene_name])

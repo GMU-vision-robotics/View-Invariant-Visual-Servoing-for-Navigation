@@ -8,8 +8,8 @@ from cyvlfeat.sift import sift
 import os
 from math import pi, cos, sin, atan2, sqrt
 import os, sys
-sys.path.append('/home/reza/Datasets/GibsonEnv/my_code/CVPR_workshop')
-from util import plus_theta_fn, minus_theta_fn
+sys.path.append('/home/yimeng/Datasets/GibsonEnv_old/my_code/CVPR_workshop')
+from my_code.CVPR_workshop.util import plus_theta_fn, minus_theta_fn
 import random
 
 def compute_sift_keypoints(img):

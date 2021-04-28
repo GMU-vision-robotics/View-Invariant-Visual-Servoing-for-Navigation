@@ -1,6 +1,6 @@
 import sys
 import matplotlib.pyplot as plt
-import meshcut
+import my_code.rrt.meshcut as meshcut
 import numpy as np
 
 def load_obj(fn):
@@ -44,7 +44,7 @@ def main():
 	print('draw trajectory ...')
 	if args.trajFilePath:
 		print('Process trajectory file: {}'.format(args.trajFilePath))
-		infos = np.load(args.trajFilePath)
+		infos = np.load(args.trajFilePath, allow_pickle=True)
 		for i in range(len(infos)-1):
 			# infos is of structure [{'eye_pos':, 'eye_quat':, 'episode':}, {}]
 			first = infos[i]['eye_pos']
